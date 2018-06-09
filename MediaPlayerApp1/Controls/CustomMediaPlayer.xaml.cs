@@ -21,8 +21,6 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-// The User Control item template is documented at https://go.microsoft.com/fwlink/?LinkId=234236
-
 namespace MediaPlayerApp1.Controls
 {
     public sealed partial class CustomMediaPlayer : UserControl
@@ -235,19 +233,10 @@ namespace MediaPlayerApp1.Controls
 
             if (!MediaPlaying)
             {
-                //if (PlayCommand.CanExecute(EMPTY_PARAMETER))
-                //{
-                //    PlayCommand.Execute(EMPTY_PARAMETER);
-                //}
                 mediaPlayer.Play();
                 MediaPlaying = true;
                 VideoMaxTime = mediaPlayer.PlaybackSession.NaturalDuration;
             }
-
-
-            
-
-
         }
 
         private void Pause()
@@ -259,16 +248,9 @@ namespace MediaPlayerApp1.Controls
                 InitializeMediaPlayer();
             if (MediaPlaying)
             {
-
-                //if (PauseCommand.CanExecute(EMPTY_PARAMETER))
-                //{
-                //    PauseCommand.Execute(EMPTY_PARAMETER);
-                //}
                 mediaPlayer.Pause();
                 MediaPlaying = false;
             }
-
-            
         }
 
         private void Stop()
@@ -277,11 +259,7 @@ namespace MediaPlayerApp1.Controls
                 return;
             if (!isMediaPlayerInitialized)
                 InitializeMediaPlayer();
-
-            //if (StopCommand.CanExecute(EMPTY_PARAMETER))
-            //{
-            //    StopCommand.Execute(EMPTY_PARAMETER);
-            //}
+            
             mediaPlayer.Pause();
             mediaPlayer.PlaybackSession.Position = new TimeSpan(0);
             MediaPlaying = false;
